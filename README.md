@@ -1,2 +1,3 @@
-# blog
+# Blog
+
 A personal blogging website

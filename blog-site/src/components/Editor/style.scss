@@ -1,0 +1,26 @@
+//Editor
+
+.editor {
+    margin: auto;
+    max-width: 600px;
+}
+
+// Custom image
+
+.custom-image {
+    &.custom-image-small {
+        width: 25%;
+    }
+
+    &.custom-image-medium {
+        width: 50%;
+    }
+
+    &.custom-image-large {
+        width: 100%;
+    }
+}
+
+body {
+    background-color: yellow;
+}
