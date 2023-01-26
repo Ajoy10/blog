@@ -2,6 +2,7 @@ import React from "react";
 
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import TextAlign from "@tiptap/extension-text-align";
 import CustomImage from "./Extensions/CustomImage";
 import MenuBar from "./MenuBar";
 import CustomBubbleMenu from "./CustomBubbleMenu";
@@ -17,6 +18,10 @@ export default function Editor() {
           class: "custom-image",
         },
       }),
+      TextAlign.configure({
+        types: ["heading", "paragraph"],
+        alignments: ["left", "center", "right", "justify"],
+      }),
     ],
     content: "<h1>Write a heading...</h1>",
   });
@@ -24,7 +29,9 @@ export default function Editor() {
     <div className="editor">
       <CustomBubbleMenu editor={editor} />
       <MenuBar editor={editor} />
-      <EditorContent editor={editor} />
+      <div className="document-area">
+        <EditorContent editor={editor} />
+      </div>
     </div>
   );
 }

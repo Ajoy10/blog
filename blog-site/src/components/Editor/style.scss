@@ -2,7 +2,109 @@
 
 .editor {
     margin: auto;
-    max-width: 600px;
+    max-width: 800px;
+
+
+    background: #FBFBFB;
+    border-radius: 8px;
+    border: 1px solid #C4C3C3;
+
+    .document-area {
+        padding: 10px;
+        min-height: 400px;
+        max-height: 600px;
+
+        overflow: scroll;
+
+        -ms-overflow-style: none;
+        /* for Internet Explorer, Edge */
+        scrollbar-width: none;
+
+        /* for Firefox */
+        &::-webkit-scrollbar {
+            display: none;
+            /* for Chrome, Safari, and Opera */
+        }
+
+
+
+        // Removing the focus outline
+        div:focus-visible {
+            outline: none;
+        }
+
+    }
+}
+
+
+
+// MenuBar
+
+.editor-menu-bar {
+    display: flex;
+
+    gap: 24px;
+
+    padding: 20px;
+    border-bottom: 1px solid #C4C3C3;
+
+
+
+    .editor-font-formatting-group {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+
+
+    }
+
+}
+
+.editor-button-24px {
+
+    width: 24px;
+    height: 24px;
+
+    background: unset;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &.is-active {
+        background-color: #121212;
+        color: white;
+    }
+}
+
+.editor-button {
+    padding: 0px 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    position: relative;
+
+    background: unset;
+    border: 1px solid #C4C3C3;
+    border-radius: 4px;
+    cursor: pointer;
+
+
+}
+
+//BubbleMenu
+
+.editor-bubble-menu {
+    background-color: #FBFBFB;
+    border: 1px solid #C4C3C3;
+    border-radius: 4px;
+    padding: 4px;
+
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 7px 29px 0px;
+
+
+
+
 }
 
 // Custom image
@@ -19,8 +121,4 @@
     &.custom-image-large {
         width: 100%;
     }
-}
-
-body {
-    background-color: yellow;
 }

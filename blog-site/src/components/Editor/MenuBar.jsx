@@ -1,5 +1,16 @@
 import React from "react";
 
+import {
+  ImageReference,
+  TextAlignCenter,
+  TextAlignJustify,
+  TextAlignLeft,
+  TextAlignRight,
+  TextBold,
+  TextItalic,
+  TextStrikethrough,
+} from "@carbon/icons-react";
+
 // @ts-check
 
 /**
@@ -13,16 +24,112 @@ export default function MenuBar({ editor }) {
   }
   return (
     <div className="editor-menu-bar">
-      {/* Bold */}
-      <button
-        onClick={() => {
-          editor.chain().focus().toggleBold().run();
-        }}
-        disabled={!editor.can().chain().focus().toggleBold().run()}
-        className={editor.isActive("bold") ? "is-active" : ""}
-      >
-        Bold
-      </button>
+      <div className="editor-font-formatting-group">
+        {/* Bold */}
+        <button
+          onClick={() => {
+            editor.chain().focus().toggleBold().run();
+          }}
+          disabled={!editor.can().chain().focus().toggleBold().run()}
+          className={
+            (editor.isActive("bold") ? "is-active" : "") + " editor-button-24px"
+          }
+          id="bold-button"
+        >
+          <TextBold aria-label="Bold" />
+        </button>
+
+        {/* Italic */}
+        <button
+          onClick={() => {
+            editor.chain().focus().toggleItalic().run();
+          }}
+          disabled={!editor.can().chain().focus().toggleItalic().run()}
+          className={
+            (editor.isActive("italic") ? "is-active" : "") +
+            " editor-button-24px"
+          }
+          id="italic-button"
+        >
+          <TextItalic aria-label="Italic" />
+        </button>
+
+        {/* Strike */}
+        <button
+          onClick={() => {
+            editor.chain().focus().toggleStrike().run();
+          }}
+          disabled={!editor.can().chain().focus().toggleStrike().run()}
+          className={
+            (editor.isActive("strike") ? "is-active" : "") +
+            " editor-button-24px"
+          }
+          id="strike-button"
+        >
+          <TextStrikethrough aria-label="Strikethrough" />
+        </button>
+      </div>
+      <div className="editor-align-group">
+        {/* Left */}
+        <button
+          onClick={() => {
+            editor.chain().focus().setTextAlign("left").run();
+          }}
+          disabled={!editor.can().chain().focus().setTextAlign("left").run()}
+          className={
+            (editor.isActive({ textAlign: "left" }) ? "is-active" : "") +
+            " editor-button-24px"
+          }
+          id="left-align-button"
+        >
+          <TextAlignLeft aria-label="Left align" />
+        </button>
+
+        {/* Center */}
+        <button
+          onClick={() => {
+            editor.chain().focus().setTextAlign("center").run();
+          }}
+          disabled={!editor.can().chain().focus().setTextAlign("center").run()}
+          className={
+            (editor.isActive({ textAlign: "center" }) ? "is-active" : "") +
+            " editor-button-24px"
+          }
+          id="center-align-button"
+        >
+          <TextAlignCenter aria-label="Center align" />
+        </button>
+
+        {/* right */}
+        <button
+          onClick={() => {
+            editor.chain().focus().setTextAlign("right").run();
+          }}
+          disabled={!editor.can().chain().focus().setTextAlign("right").run()}
+          className={
+            (editor.isActive({ textAlign: "right" }) ? "is-active" : "") +
+            " editor-button-24px"
+          }
+          id="right-align-button"
+        >
+          <TextAlignRight aria-label="Right align" />
+        </button>
+
+        {/* justify */}
+        <button
+          onClick={() => {
+            editor.chain().focus().setTextAlign("justify").run();
+          }}
+          disabled={!editor.can().chain().focus().setTextAlign("justify").run()}
+          className={
+            (editor.isActive({ textAlign: "justify" }) ? "is-active" : "") +
+            " editor-button-24px"
+          }
+          id="justify-align-button"
+        >
+          <TextAlignJustify aria-label="Justify align" />
+        </button>
+      </div>
 
       {/* Image */}
       <button
@@ -36,9 +143,9 @@ export default function MenuBar({ editor }) {
             })
             .run();
         }}
-        className={editor.isActive("bold") ? "is-active" : ""}
+        className="editor-button"
       >
-        Image
+        <ImageReference aria-label="Insert image" />
       </button>
     </div>
   );

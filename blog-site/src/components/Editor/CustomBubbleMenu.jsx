@@ -1,5 +1,6 @@
 import React from "react";
 import { BubbleMenu } from "@tiptap/react";
+import { TextBold, TextItalic, TextStrikethrough } from "@carbon/icons-react";
 
 // @ts-check
 
@@ -18,14 +19,50 @@ export default function CustomBubbleMenu({ editor }) {
           tippyOptions={{ duration: 100 }}
         >
           {editor.can().chain().focus().setBold().run() && (
-            <div className="bubble-text">
+            <div className="editor-font-formatting-group">
               {/* Bold */}
               <button
                 onClick={() => {
                   editor.chain().focus().toggleBold().run();
                 }}
+                disabled={!editor.can().chain().focus().toggleBold().run()}
+                className={
+                  (editor.isActive("bold") ? "is-active" : "") +
+                  " editor-format-button"
+                }
+                id="bold-button"
               >
-                Bold
+                <TextBold aria-label="Bold" />
+              </button>
+
+              {/* Italic */}
+              <button
+                onClick={() => {
+                  editor.chain().focus().toggleItalic().run();
+                }}
+                disabled={!editor.can().chain().focus().toggleItalic().run()}
+                className={
+                  (editor.isActive("italic") ? "is-active" : "") +
+                  " editor-format-button"
+                }
+                id="italic-button"
+              >
+                <TextItalic aria-label="Italic" />
+              </button>
+
+              {/* Strike */}
+              <button
+                onClick={() => {
+                  editor.chain().focus().toggleStrike().run();
+                }}
+                disabled={!editor.can().chain().focus().toggleStrike().run()}
+                className={
+                  (editor.isActive("strike") ? "is-active" : "") +
+                  " editor-format-button"
+                }
+                id="strike-button"
+              >
+                <TextStrikethrough aria-label="Strikethrough" />
               </button>
             </div>
           )}
