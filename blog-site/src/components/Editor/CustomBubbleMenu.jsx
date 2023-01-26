@@ -28,7 +28,7 @@ export default function CustomBubbleMenu({ editor }) {
                 disabled={!editor.can().chain().focus().toggleBold().run()}
                 className={
                   (editor.isActive("bold") ? "is-active" : "") +
-                  " editor-format-button"
+                  " editor-button-24px"
                 }
                 id="bold-button"
               >
@@ -43,7 +43,7 @@ export default function CustomBubbleMenu({ editor }) {
                 disabled={!editor.can().chain().focus().toggleItalic().run()}
                 className={
                   (editor.isActive("italic") ? "is-active" : "") +
-                  " editor-format-button"
+                  " editor-button-24px"
                 }
                 id="italic-button"
               >
@@ -58,7 +58,7 @@ export default function CustomBubbleMenu({ editor }) {
                 disabled={!editor.can().chain().focus().toggleStrike().run()}
                 className={
                   (editor.isActive("strike") ? "is-active" : "") +
-                  " editor-format-button"
+                  " editor-button-24px"
                 }
                 id="strike-button"
               >
