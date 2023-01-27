@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Editor from "./components/Editor/Editor";
 
 function App() {

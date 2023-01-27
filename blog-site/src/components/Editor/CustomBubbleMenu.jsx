@@ -72,28 +72,15 @@ export default function CustomBubbleMenu({ editor }) {
               <select
                 name="image-size"
                 id="bubble-image-size"
+                className="editor-menu-select"
                 onChange={(e) => {
                   editor.chain().focus().setSize(e.target.value).run();
                 }}
+                defaultValue={editor.getAttributes("custom-image").size}
               >
-                <option
-                  value="small"
-                  selected={editor.isActive("custom-image", { size: "small" })}
-                >
-                  Small
-                </option>
-                <option
-                  value="medium"
-                  selected={editor.isActive("custom-image", { size: "medium" })}
-                >
-                  Medium
-                </option>
-                <option
-                  value="large"
-                  selected={editor.isActive("custom-image", { size: "large" })}
-                >
-                  Large
-                </option>
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
               </select>
             </div>
           )}
